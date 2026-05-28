@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Redirecting...</title>
+    <script type="text/javascript">
+      // SPA GitHub Pages redirect script
+      // Converts path-based routing to hash-based routing on 404
+      var pathSegmentsToKeep = 1; // Keeps '/test-real-estate' in the URL path
+
+      var l = window.location;
+      var redirectUrl = l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') +
+        l.pathname.split('/').slice(0, 1 + pathSegmentsToKeep).join('/') + '/#/' +
+        l.pathname.slice(1).split('/').slice(pathSegmentsToKeep).join('/') +
+        l.search + l.hash;
+
+      l.replace(redirectUrl);
+    </script>
+  </head>
+  <body>
+    <p>Redirecting to application...</p>
+  </body>
+</html>
